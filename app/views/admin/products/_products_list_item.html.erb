@@ -1,0 +1,7 @@
+<%= link_to small_image(product), product %>
+
+<% if product.reduction_percentage.blank? %>
+  <%= link_to raw(product.name + " <span class='price selling'>#{product_price(product)}</span>"), product, :class => 'info' %>
+<% else %>
+  <%= link_to raw(product.name + " <span class='price was' style='text-decoration:line-through'>#{product_price(product)}</span> <span class='price now'>#{product_price(product, :show_calculated_price => true)}</span>"), product, :class => 'info' %>
+<% end %>
